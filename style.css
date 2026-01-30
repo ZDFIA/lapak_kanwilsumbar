@@ -1,0 +1,1431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background:#020e16;
+    padding: 12px 40px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.logo-text strong {
+    color: #fff;
+    font-size: 14px;
+    display: block;
+}
+
+.logo-text span {
+    color: #cfe3ee;
+    font-size: 12px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    position: relative;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #cfe3ee;
+    transition: width .3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
+    background: linear-gradient(180deg, #0B3C5D, #D9ECF2);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px 40px;
+    width: 100%;
+    border-radius: 0;
+}
+
+.hero h1 {
+    font-size: 26px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* ================= SLIDER WAVE ================= */
+.slider-wave {
+    width: 100vw;
+    overflow: hidden;
+    padding: 20px 0 10px;
+}
+
+.slider-wave .track {
+    display: flex;
+    gap: 22px;
+    animation: waveSlide 5s linear infinite;
+}
+
+.slider-wave img {
+    width: 170px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 22px rgba(0,0,0,.18);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.slider-wave img:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+}
+
+.slider-wave img:nth-child(3n+1) {
+    transform: translateY(6px) scale(.95);
+}
+.slider-wave img:nth-child(3n+2) {
+    transform: translateY(-6px) scale(1.05);
+}
+.slider-wave img:nth-child(3n) {
+    transform: translateY(2px);
+}
+
+@keyframes waveSlide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ================= PORTAL ================= */
+.portal-summary {
+    width: 100%;
+    padding: 50px 20px;
+    background: linear-gradient(180deg, #D9ECF2, #0B3C5D);
+    color: #fff;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.portal {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 card per baris */
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsif */
+@media (max-width: 1200px) {
+    .portal {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .portal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portal {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= CARD INTERAKTIF ================= */
+.portal-card {
+    display: block; /* <a> menutupi seluruh card */
+    text-decoration: none;
+    background: #0B3C5D;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow:
+        0 4px 6px rgba(0,0,0,0.1),
+        0 8px 20px rgba(0,0,0,0.15),
+        0 12px 40px rgba(0,0,0,0.2);
+}
+
+.portal-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,.15));
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.portal-card:hover::after {
+    opacity: 1;
+}
+
+.portal-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:
+        0 8px 12px rgba(0,0,0,0.2),
+        0 16px 36px rgba(0,0,0,0.25),
+        0 24px 60px rgba(0,0,0,0.3);
+}
+
+.portal-card:active {
+    transform: scale(.97);
+}
+
+.portal-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.portal-card span {
+    display: block;
+    padding: 16px;
+    font-weight: 600;
+    background: transparent;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= FIX JUDUL DI BAWAH GAMBAR ================= */
+.portal-card {
+    display: flex;
+    flex-direction: column;  /* gambar di atas, judul di bawah */
+    align-items: center;     /* judul rata tengah */
+}
+
+.portal-card .search-form {
+    display: flex;
+    flex-direction: column;  /* tombol & input vertikal */
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px; /* spasi dari judul */
+}
+
+.portal-card .search-button {
+    width: 100%;
+    max-width: 120px;
+}
+
+
+/* ================= BUTTON TENGAH ================= */
+.lihat-lainnya {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.lihat-lainnya a {
+    background: #D9ECF2;
+    color: #0B3C5D;
+    padding: 14px 38px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all .25s ease;
+}
+
+.lihat-lainnya a:hover {
+    background: #0B3C5D;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(11,60,93,.35);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #0B3C5D;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    font-size: 13px;
+    margin-top: 60px;
+    width: 100%;
+}
+
+/* ================= HALAMAN DETAIL CARD ================= */
+.detail-card {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #D9ECF2, #0B3C5D);
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.detail-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.detail-card img {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    display: block;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+}
+
+.detail-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    text-align: justify;
+}
+
+/* ==================== SEARCH BAR ==================== */
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 400px;  /* supaya tidak melebar */
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0B3C5D;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%;
+    max-width: 120px;
+}
+
+/* Tombol di bawah input untuk mobile */
+@media (max-width: 480px) {
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+}
+
+/* ================= VIDEO DETAIL ================= */
+.video-wrapper {
+    max-width: 700px;        /* batas lebar video */
+    margin: 0 auto 35px;     /* posisi tengah */
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.video-wrapper video {
+    width: 200%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+/* versi lebih kecil di layar besar */
+@media (min-width: 1024px) {
+    .video-wrapper {
+        max-width: 300px;
+    }
+}
+
+.list-syarat {
+    padding-left: 20px;
+}
+
+.list-syarat li {
+    margin-bottom: 6px;
+}
+
+.list-syarat ul {
+    margin-top: 6px;
+    padding-left: 18px;
+}
+
+.list-syarat ul li {
+    margin-bottom: 4px;
+}
+
+.list-syarat .catatan {
+    margin-top: 6px;
+    margin-left: 18px; /* sejajar isi teks poin */
+    font-style: italic;
+    font-size: 14px;
+    color: #e6eef5;
+}
+
+.sub-judul {
+    font-size: 20px;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.ketentuan-tambahan {
+    list-style: disc;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.ketentuan-tambahan > li {
+    margin-bottom: 14px;
+}
+
+.ketentuan-tambahan strong {
+    font-weight: 600;
+}
+
+.ketentuan-tambahan ol {
+    margin-top: 8px;
+    padding-left: 22px;
+}
+
+.ketentuan-tambahan ol li {
+    margin-bottom: 6px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  background-color: #dbe2f3;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+h3 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.sub-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+ol {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+ol li {
+  margin-bottom: 6px;
+}
+
+.prosedur {
+  margin-top: 10px;
+}
+
+.link-putih {
+    color: #ffffff !important;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.link-putih:hover {
+    color: #D9ECF2;
+}
+
+/* ===== INFORMASI SECTION ===== */
+.info-section{
+    padding: 60px 20px;
+    background: #f4f6f8;
+}
+
+.info-title{
+    text-align: center;
+    font-size: 28px;
+    color: #0B3C5D;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.info-grid{
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.info-box{
+    background: #ffffff;
+    padding: 25px 20px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.info-box:hover{
+    transform: translateY(-6px);
+}
+
+.info-box h3{
+    color: #0B3C5D;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.info-box p{
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== INFO SECTION (NYAMBUNG WARNA) ===== */
+.info-section{
+    padding: 70px 20px;
+    background: linear-gradient(180deg, #0B3C5D 0%, #0e4a73 100%);
+}
+
+.info-title{
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 45px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* GRID */
+.info-grid{
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* BOX */
+/* ===== INFO SECTION ===== */
+.info-section {
+    padding: 10px 20px 60px; /* padding atas sangat kecil, bawah tetap */
+    background: linear-gradient(180deg, #0B3C5D 0%, #0e4a73 100%);
+}
+
+/* ===== Judul bidang tugas ===== */
+.info-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f5f8b;
+    margin: 10px 0 30px 0; /* turun sedikit */
+    position: relative;
+}
+
+.info-title::before,
+.info-title::after {
+    content: "";
+    flex: 1;
+    height: 3px;
+    background: #1f5f8b;
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+/* ===== Grid box info 2x2 ===== */
+.info-grid {
+    max-width: 1000px; /* sedikit lebih lebar supaya memanjang */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 25px 20px; /* jarak antar box: baris x kolom */
+}
+
+/* ===== Box info ===== */
+/* ===== Box info (judul naik ke atas) ===== */
+.info-box {
+    background: linear-gradient(180deg, #f8fbff, #ffffff);
+    padding: 12px 20px 25px 20px; /* padding-top dikurangi, bawah tetap */
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(11, 60, 93, 0.1);
+    border-top: 6px solid #f4c430;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 150px; /* tetap memanjang */
+}
+
+.info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(11, 60, 93, 0.15);
+}
+
+.info-box h3 {
+    color: #1f5f8b;
+    margin-top: 0;        /* hilangkan jarak atas */
+    margin-bottom: 5px;   /* jarak bawah sedikit */
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ===== Section Wilayah ===== */
+.wilayah-section {
+    padding: 30px 10px 50px; /* sedikit turun dari atas */
+    background: #f4f6f8; /* bisa disesuaikan */
+}
+
+/* Judul WILAYAH */
+.wilayah-section .info-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f5f8b;
+    margin: 10px 0 30px 0; /* turun sedikit */
+    position: relative;
+}
+
+.wilayah-section .info-title::before,
+.wilayah-section .info-title::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: #1f5f8b;
+    margin: 0 15px;
+    border-radius: 2px;
+}
+
+/* Grid 3 kotak */
+.wilayah-section .info-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 20px; /* jarak antar box */
+}
+
+/* Box menyesuaikan teks */
+.wilayah-section .info-box {
+    background: linear-gradient(180deg, #f8fbff, #ffffff);
+    padding: 20px 18px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(11, 60, 93, 0.1);
+    border-top: 6px solid #f4c430;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: auto; /* tinggi fleksibel sesuai teks */
+}
+
+.wilayah-section .info-box h3 {
+    color: #1f5f8b;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.wilayah-section .info-box p {
+    font-size: 15px;
+    color: #5f6f7a;
+    line-height: 1.6;
+}
+
+.wilayah-section .info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(11, 60, 93, 0.15);
+}
+
+/* RESPONSIVE: 2 kolom di tablet, 1 kolom di hp */
+@media (max-width: 992px) {
+    .wilayah-section .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .wilayah-section .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Section Layanan Inovasi ===== */
+.layanan-section {
+    margin-bottom: 20px;   /* perkecil jarak antar section */
+}
+
+/* Judul Layanan Inovasi */
+.layanan-section .info-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px; /* ukuran sedang */
+    font-weight: 700;
+    color: #1f5f8b; /* biru lembut */
+    margin: 0 0 20px 0; /* margin atas = 0, bawah sedikit */
+    position: relative;
+}
+
+.layanan-section .info-title::before,
+.layanan-section .info-title::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: #1f5f8b; /* garis biru lembut */
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+/* Grid box 3 kolom */
+.layanan-section .info-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 20px 15px; /* jarak baris x kolom */
+}
+
+/* Box info */
+.layanan-section .info-box {
+    background: linear-gradient(180deg, #f8fbff, #ffffff); /* gradasi biru lembut */
+    padding: 16px 18px; /* lebih compact */
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 6px 16px rgba(11, 60, 93, 0.1);
+    border-top: 5px solid #f4c430;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: auto; /* menyesuaikan teks */
+}
+
+.layanan-section .info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(11, 60, 93, 0.15);
+}
+
+.layanan-section .info-box h3 {
+    color: #1f5f8b; /* biru lembut */
+    margin-top: 0;   /* judul menempel atas box */
+    margin-bottom: 6px;
+    font-size: 18px; /* ukuran lebih kecil */
+    font-weight: 600;
+}
+
+.layanan-section .info-box p {
+    font-size: 14px;
+    color: #5f6f7a; /* abu kebiruan */
+    line-height: 1.6;
+}
+
+/* RESPONSIVE: 2 kolom tablet, 1 kolom HP */
+@media (max-width: 992px) {
+    .layanan-section .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .layanan-section .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero {
+    padding-top: 10px;   /* dari header jadi dekat */
+    padding-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 32px;        /* ukuran normal & rapi */
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.hero-big {
+    font-size: 42px;        /* BESAR tapi elegan */
+    font-weight: 800;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero-big {
+        font-size: 34px;
+    }
+}
+
+.hero p {
+    margin-top: 0;
+    margin-bottom: 6px;           /* JARAK RAPET */
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 400;             /* TIDAK BOLD */
+}
+
+.hero-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: justify;     /* RATA KIRI KANAN */
+    color: #ffffff;          /* PUTIH */
+
+    width: 90%;              /* MELEBAR */
+    max-width: none;         /* TIDAK NGIKUT JUDUL */
+    margin: 8px auto 15px;   /* TETAP TENGAH */
+}
+
+.hero-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;              /* JARAK ANTAR GAMBAR */
+    margin-top: 20px;       /* JARAK DARI TEKS */
+    flex-wrap: wrap;        /* AMAN DI HP */
+}
+
+.hero-images img {
+    width: 45%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 16px;    /* TIDAK PETAK */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .hero-images img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.full-image {
+    width: 100%;
+    max-width: 1200px;     /* Biar nggak mentok layar */
+    margin: 20px auto 0;   /* Tengah + jarak dari judul */
+    padding: 0 20px;       /* JARAK KIRI KANAN */
+    box-sizing: border-box;
+}
+
+.full-image img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .full-image {
+        padding: 0 12px;
+    }
+
+    .full-image img {
+        max-height: 260px;
+        border-radius: 14px;
+    }
+}
+
+.info-daftar {
+    margin-top: 0;
+    transform: translateY(-20px);   /* NAIK NYATA */
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0B3C5D;
+}
+
+
+
+.info-daftar span {
+    margin-right: 6px;
+}
+
+.info-daftar a {
+    color: #f4c430;        /* kuning emas */
+    font-weight: 800;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.info-daftar a:hover {
+    color: #0B3C5D;
+    border-bottom: 2px solid #0B3C5D;
+}
+
+@media (max-width: 600px) {
+    .info-daftar {
+        font-size: 16px;
+    }
+}
+
+
+.faq-container{
+  max-width:900px;
+  margin:30px auto;
+}
+
+.faq-item{
+  background:#0B3C5D; /* Biru tua Imigrasi */
+  border-radius:12px;
+  margin-bottom:15px;
+  overflow:hidden;
+  border:1px solid #1e6fa8;
+}
+
+.faq-question{
+  width:100%;
+  background:none;
+  border:none;
+  color:#ffffff; /* Putih */
+  font-size:18px;
+  padding:20px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-align:left;
+}
+
+.faq-question:hover{
+  background:rgba(255,255,255,0.08);
+}
+
+.faq-question .icon{
+  font-size:26px;
+  color:#00eaff; /* Biru muda Imigrasi */
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  transition:all 0.35s ease;
+  background:#0f4c75; /* Biru isi */
+}
+
+.faq-answer p{
+  color:#e8f4ff;
+  line-height:1.7;
+  padding:15px 0 20px;
+}
+
+.faq-item.active .faq-answer{
+  max-height:400px;
+}
+
+.footer {
+    background: #0b3c5d;
+    color: #fff;
+    padding: 50px 60px; /* ⬅️ biar gak ke tepi */
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;   /* ⬅️ biar tengah */
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+/* KIRI */
+.footer-left h3 {
+    margin: 0;
+    font-size: 24px;     /* ⬅️ lebih besar */
+    font-weight: 700;   /* ⬅️ bold */
+}
+
+.footer-left p {
+    margin-top: 10px;
+    font-size: 16px;    /* ⬅️ lebih besar */
+    font-weight: 600;   /* ⬅️ semi bold */
+    opacity: 0.9;
+}
+
+/* KANAN */
+.footer-right {
+    display: flex;
+    gap: 60px;
+}
+
+/* MENU */
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;    /* ⬅️ dibesarin */
+    font-weight: 700;  /* ⬅️ bold */
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+/* SOSIAL MEDIA */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;    /* ⬅️ dibesarin */
+    font-weight: 700;  /* ⬅️ bold */
+}
+
+.footer-social a:hover {
+    color: #fff;
+}
+
+/* BAWAH */
+.footer-bottom {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.footer-menu h4,
+.footer-social h4 {
+    font-size: 20px;      /* ⬅️ dibesarkan */
+    font-weight: 800;     /* lebih tebal */
+    margin-bottom: 20px;  /* ⬅️ jarak ke link di bawahnya */
+    color: #ffd700;       /* tetap warna emas */
+    letter-spacing: 1px;  /* opsional, biar kelihatan rapi */
+}
+
+/* ================= DARK BACKGROUND OVERRIDE ONLY ================= */
+
+/* BODY */
+body {
+    background-color: #020e16 !important;
+}
+
+/* SECTION TERANG */
+.hero,
+.portal-summary,
+.info-section,
+.wilayah-section,
+.layanan-section,
+.detail-card {
+    background: #020e16 !important;
+}
+
+/* GRADIENT YANG TERLALU TERANG */
+.hero,
+.portal-summary,
+.detail-card {
+    background: linear-gradient(180deg,  #020e16, #07213D) !important;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #020e16, !important;
+}
+
+/* OPTIONAL: biar teks tetap kebaca */
+.info-title,
+.hero h1,
+.hero p {
+    color: #ffffff;
+}
+
+/* =========================================================
+   FINAL DARK THEME — FIX TOTAL (AMAN & RAPI)
+   ========================================================= */
+
+/* BODY */
+body {
+    background-color: #020e16 !important;
+    color: #ffffff;
+}
+
+/* ================= HERO ================= */
+.hero {
+    background: linear-gradient(180deg, #020e16 0%, #07213D 100%) !important;
+    color: #ffffff;
+}
+
+/* ================= PORTAL IMIGRASI ================= */
+.portal-summary {
+    background-color: #0B3C5D  !important;
+    color: #ffffff;
+}
+
+/* grid portal tetap transparan */
+.portal {
+    background: transparent !important;
+}
+
+/* card portal */
+.portal-card {
+    background-color: #0B3C5D !important;
+}
+
+/* ================= DETAIL HALAMAN ================= */
+.detail-card {
+    background: linear-gradient(180deg, #0B3C5D  0%, #0B3C5D  100%) !important;
+    color: #ffffff;
+}
+
+/* ================= INFO / WILAYAH / LAYANAN ================= */
+.info-section,
+.wilayah-section,
+.layanan-section {
+    background-color: #0B3C5D  !important;
+}
+
+/* judul tetap terbaca */
+.info-title,
+.hero h1,
+.hero p {
+    color: #ffffff !important;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background-color: #0B3C5D !important; /* ⬅️ FIX TYPO */
+    color: #ffffff;
+}
+
+/* footer kanan (MAIN & CONNECT) */
+.footer-right {
+    background-color: #0B3C5D  !important;
+    padding: 30px 40px;
+    border-radius: 16px;
+}
+
+/* judul footer */
+.footer-menu h4,
+.footer-social h4 {
+    color: #6ec1ff !important;
+}
+
+/* link footer */
+.footer-menu a,
+.footer-social a {
+    color: #ffffff !important;
+}
+
+.footer-menu a:hover,
+.footer-social a:hover {
+    color: #6ec1ff !important;
+}
+
+/* NAV BUTTON STYLE (COMPACT) */
+.nav-button {
+    display: flex;
+    gap: 2px;              /* ⬅️ jarak antar tombol diperkecil */
+    align-items: center;
+}
+
+.btn-nav {
+    padding: 6px 12px;     /* ⬅️ tombol lebih kecil & rapi */
+    border-radius: 16px;   /* ⬅️ radius sedikit diperkecil */
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;       /* ⬅️ teks lebih proporsional */
+    background: rgba(255, 255, 255, 0.12);
+    transition: all 0.25s ease;
+}
+
+.btn-nav:hover {
+    background: #0a3d62;
+    transform: translateY(-1px); /* ⬅️ animasi lebih halus */
+}
+
+/* Tombol aktif (Home) */
+.btn-nav.active {
+    background: #EEBF63;
+    color: #003344;
+    font-weight: 600;
+}
+
+
+/* ================= NAV MENU JADI BUTTON ================= */
+
+/* Pastikan nav tetap rapi */
+.header .nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Semua link di header kanan */
+.header .nav a {
+    padding: 8px 16px;
+    border-radius: 999px; /* bentuk kapsul */
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.12);
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.header .nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Tombol aktif (contoh: Home) */
+.header .nav a.active {
+    background: #EEBF63;
+    color: #003344;
+    font-weight: 600;
+}
+
+/* Semua tombol jadi warna seperti Home */
+.header .nav a {
+    background: #EEBF63;
+    color: #003344;
+    font-weight: 600;
+}
+
+/* Hover tetap lebih gelap sedikit */
+.header .nav a:hover {
+    background: #EEBF63;
+    transform: translateY(-1px);
+}
+
+/* ================= SAMAKAN DENGAN JUDUL MAIN ================= */
+
+/* Judul CONNECT */
+.footer-social h4 {
+    font-size: 16px;        /* sama seperti MAIN */
+    font-weight: 700;       /* tebal */
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+/* Link sosial biasa */
+.footer-social a {
+    font-size: 16px;        /* SAMA */
+    font-weight: 700;       /* SAMA */
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-social a:hover {
+    color: #EEBF63;
+}
+
+/* ================= INSTAGRAM DROPDOWN ================= */
+
+.ig-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tombol Instagram ▾ */
+.ig-btn {
+    font-size: 16px;        /* SAMA DENGAN MAIN */
+    font-weight: 700;       /* TEBAL */
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Menu dropdown */
+.ig-menu {
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background: #0a3d62;
+    border-radius: 8px;
+    min-width: 260px;
+    padding: 6px 0;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Isi dropdown */
+.ig-menu a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 16px;        /* SAMA */
+    font-weight: 700;       /* SAMA */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Hover dropdown */
+.ig-menu a:hover {
+    background: #EEBF63;
+    color: #003344;
+}
+
+/* Tampilkan dropdown */
+.ig-dropdown:hover .ig-menu {
+    display: block;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background-color: #020e16;
+    color: #ffffff;
+    padding: 50px 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* ===== KIRI ===== */
+.footer-left h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.footer-left p {
+    margin-top: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* ===== KANAN (INI KUNCI KE KANAN) ===== */
+.footer-right {
+    display: flex;
+    gap: 80px;
+    margin-left: auto; /* 🔥 INI YANG MENDORONG KE KANAN */
+}
+
+/* ===== JUDUL ===== */
+.footer-menu h4,
+.footer-social h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #7fd3ff;
+}
+
+/* ===== MENU MAIN ===== */
+.footer-menu a {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ===== CONNECT ===== */
+.footer-social .ig-btn {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* ===== DROPDOWN ===== */
+.ig-dropdown {
+    position: relative;
+}
+
+.ig-menu {
+    display: none;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+
+.ig-dropdown:hover .ig-menu {
+    display: block;
+}
+
+.ig-menu a {
+    display: block;
+    font-size: 14px;
+    color: #cce9ff;
+    margin-bottom: 6px;
+    text-decoration: none;
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+}
