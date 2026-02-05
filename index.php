@@ -5,6 +5,8 @@
     <title>Informasi Imigrasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    
 </head>
 <body>
 
@@ -30,6 +32,10 @@
             <img src="images/slide2.jpeg" alt="Cara Mendaftar di M-Paspor">
             <span>Cara Mendaftar di M-Paspor</span>
         </a>
+        <a href="https://imigrasi.go.id/custom/view?type=wna-category" class="portal-card">
+            <img src="images/slide16.jpeg" alt="Paspor Hilang">
+            <span>Layanan WNA</span>
+        </a>
         <a href="detail3.php" class="portal-card">
             <img src="images/slide4.jpeg" alt="Alur Penerbitan Paspor">
             <span>Alur Penerbitan Paspor</span>
@@ -49,10 +55,6 @@
         <a href="detail7.php" class="portal-card">
             <img src="images/slide8.jpeg" alt="Paspor Rusak">
             <span>Paspor Rusak</span>
-        </a>
-        <a href="detail8.php" class="portal-card">
-            <img src="images/slide9.jpeg" alt="Paspor Hilang">
-            <span>Paspor Hilang</span>
         </a>
     </div> <!-- ⬅️ PENTING: TUTUP .portal -->
 

@@ -4,8 +4,8 @@
         <div class="logo">
             <img src="images/logo.png" alt="Logo Imigrasi">
             <div class="logo-text">
-                <strong>Portal Informasi</strong>
-                <span>Imigrasi Sumatera Barat</span>
+                <strong>LAPAK KANWIL SUMBAR</strong>
+                <span>Layanan Pasport Keimgrarasian KANWIL SUMBAR</span>
             </div>
         </div>
 

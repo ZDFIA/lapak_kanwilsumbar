@@ -5,6 +5,7 @@
     <title>Layanan Keimigrasian</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
 </head>
 <body>
 
@@ -12,18 +13,9 @@
     include "navbar.php";
 ?>
 
-<section class="hero">
-    <h1>
-        SELAMAT DATANG DI SISTEM INFORMASI LAYANAN PASPOR<br>
-        KANTOR IMIGRASI SUMATERA BARAT
-    </h1>
-
-    <!-- Search Bar -->
-    <form class="search-form" onsubmit="return false;">
-        <input type="text" id="searchInput" placeholder="Cari layanan..." class="search-input">
-        <button type="button" class="search-button" onclick="filterServices()">Cari</button>
-    </form>
-</section>
+<?php
+    include "hero.php";
+?>
 
 
 <section class="portal">
@@ -37,6 +29,10 @@
         <span>Cara Mendaftar di M-Paspor</span>
     </a>
 
+            <a href="https://imigrasi.go.id/custom/view?type=wna-category" class="portal-card">
+        <img src="images/slide16.jpeg">
+        <span>Layanan WNA</span>
+    </a>
     <a href="detaill3.php" class="portal-card">
         <img src="images/slide4.jpeg" alt="Alur Penerbitan Paspor">
         <span>Alur Penerbitan Paspor</span>
@@ -116,7 +112,3 @@
     // Optional: filter secara realtime saat mengetik
     document.getElementById('searchInput').addEventListener('input', filterServices);
 </script>
-
-
-</body>
-</html>
