@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mail($tujuan, $subjek, $pesan, $header)) {
         echo "<script>
             alert('Terima kasih, saran Anda telah terkirim.');
-            window.location.href='feedback.html';
+            window.location.href='feedback.php';
         </script>";
     } else {
         echo "<script>
