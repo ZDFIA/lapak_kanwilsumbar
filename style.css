@@ -1721,18 +1721,44 @@ body {
   }
 
   /* hamburger default di kanan atas */
-  .hamburger {
+ /* HEADER CONTAINER RAPI */
+.header-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 50px; /* ruang buat hamburger */
+}
+
+/* LOGO & TEKS */
+.logo {
+  margin-left: -10px; /* geser sedikit kiri, aman */
+}
+
+/* HAMBURGER */
+.hamburger {
   position: absolute;
-  right: 0;      /* paling kanan */
-  top: 20px;
+  right: 12px;   /* jarak dari kanan */
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   transition: all 0.4s ease;
 }
 
-.logo {
-  margin-left: -25px;
-}
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .logo-text strong {
+    font-size: 12px;
+  }
 
+  .logo-text span {
+    font-size: 10px;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 3px;
+  }
+}
 
   /* saat aktif → pindah ke bawah logo */
   .header.menu-open .hamburger {
