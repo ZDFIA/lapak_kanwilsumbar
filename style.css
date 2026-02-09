@@ -1521,6 +1521,99 @@ body {
   padding: 80px 0;
 }
 
+/* ================= MOBILE ONLY (TAMBAHAN, TANPA UBAH CSS ASLI) ================= */
+@media (max-width: 600px) {
+
+  /* HERO */
+  .hero {
+    padding: 20px 12px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .hero-desc {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* PORTAL */
+  .portal-summary {
+    padding: 30px 12px;
+  }
+
+  /* INFO / WILAYAH / LAYANAN */
+  .info-section,
+  .wilayah-section,
+  .layanan-section,
+  .bidang-tugas-section {
+    padding: 40px 12px;
+  }
+
+  /* GRID INFO */
+  .info-grid,
+  .wilayah-section .info-grid,
+  .layanan-section .info-grid {
+    gap: 15px;
+  }
+
+  /* BOX */
+  .info-box {
+    padding: 16px 14px;
+  }
+
+  .info-box h3 {
+    font-size: 16px;
+  }
+
+  .info-box p {
+    font-size: 13px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .footer-right {
+    margin-left: 0;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .store-icons img {
+    height: 60px;
+  }
+
+  /* LAYANAN INOVASI GRID CUSTOM */
+  .layanan-section .lamang-wrapper {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .layanan-section .lamang-wrapper > .info-box:nth-child(4),
+  .layanan-section .lamang-wrapper > .info-box:nth-child(5) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* BIDANG TUGAS BACKGROUND (HITAM) */
+  .bidang-tugas-section {
+    background: linear-gradient(
+      to bottom,
+      #04131d,
+      #020e16
+    );
+  }
+}
 
  
 
