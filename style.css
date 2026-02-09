@@ -630,9 +630,15 @@ ol li {
 
 /* ===== Section Wilayah ===== */
 .wilayah-section {
-    padding: 30px 10px 50px; /* sedikit turun dari atas */
-    background: #f4f6f8; /* bisa disesuaikan */
+    text-align: center;
+    padding: 40px 20px;
 }
+
+.unit-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* Judul WILAYAH */
 .wilayah-section .info-title {
@@ -1456,4 +1462,9 @@ body {
     display: block;
 }
 
+.row-unit {
+  display: flex;
+  justify-content: center; /* bikin ke tengah */
+  gap: 30px;               /* jarak antar box */
+}
 
