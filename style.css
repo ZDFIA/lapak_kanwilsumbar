@@ -1768,21 +1768,21 @@ body {
 
   /* menu dropdown */
   .nav.nav-button {
-    display: none;
-    position: absolute;
-    top: 140px;
-    right: 50%;
-    transform: translateX(50%);
-    background: #0b3a57;
-    flex-direction: column;
-    width: 240px;
-    border-radius: 16px;
-    padding: 10px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,.4);
-    z-index: 999;
-    opacity: 0;
-    transition: all 0.4s ease;
-  }
+  display: none;
+  position: absolute;
+  top: 140px;
+  right: 50%;
+  transform: translateX(50%);
+  background: transparent;   /* HILANGKAN BIRU */
+  flex-direction: column;
+  width: 240px;
+  border-radius: 0;          /* HILANGKAN BULET */
+  padding: 10px 0;
+  box-shadow: none;          /* HILANGKAN BAYANGAN */
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
 
   .nav.nav-button.show {
     display: flex;
@@ -1804,6 +1804,19 @@ body {
     background: rgba(255,255,255,0.08);
   }
 }
+
+/* HERO default */
+.hero {
+  transition: transform 0.4s ease;
+}
+
+/* saat hamburger dibuka → hero turun */
+.header.menu-open + .hero {
+  transform: translateY(180px);
+}
+
+
+
 
 
 
