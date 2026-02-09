@@ -1339,9 +1339,14 @@ body {
 }
 
 /* Tampilkan dropdown */
-.ig-dropdown:hover .ig-menu {
-    display: block;
+.ig-menu {
+  display: none;
 }
+
+.ig-dropdown.active .ig-menu {
+  display: block;
+}
+
 
 /* ================= FOOTER ================= */
 
@@ -1413,9 +1418,14 @@ body {
     margin-bottom: 12px;
 }
 
-.ig-dropdown:hover .ig-menu {
-    display: block;
+.ig-menu {
+  display: none;
 }
+
+.ig-dropdown.active .ig-menu {
+  display: block;
+}
+
 
 .ig-menu a {
     display: block;
