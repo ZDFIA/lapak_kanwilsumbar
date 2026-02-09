@@ -84,6 +84,6 @@
 <?php
     include "footer.php";
 ?>
-
+<script src="hamburger.js"></script>
 </body>
 </html>

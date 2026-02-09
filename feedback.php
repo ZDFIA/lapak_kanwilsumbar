@@ -48,6 +48,7 @@
         margin-bottom:6px;
         font-size:14px; /* lebih kecil */
         font-weight:600;
+        color:#ffffff;
     }
 
     input, textarea{
@@ -138,6 +139,6 @@
 <?php
     include "footer.php";
 ?>
-
+<script src="hamburger.js"></script>
 </body>
 </html>

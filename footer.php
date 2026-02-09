@@ -9,21 +9,26 @@
 
         <!-- TENGAH -->
          <div class="footer-center">
-            <span class="footer-mpasport">Daftar M-Pasport</span>
+            <span class="footer-mpasport">
+                <strong>DAFTAR M-PASPORT</strong>
+                <p>Klik Disini!</p>
+            </span>
 
             <div class="store-icons">
                 <!-- PLAY STORE -->
                 <a href="https://play.google.com/store/apps/details?id=id.go.imigrasi.paspor_online&hl=en-US&pli=1"
                 target="_blank" rel="noopener">
-                    <img src="images/logo_playstore.png" alt="Google Play">
-                </a>
-
-                <!-- APP STORE -->
-                <a href="https://apps.apple.com/id/app/m-paspor/id1576336459"
-                target="_blank" rel="noopener">
-                    <img src="images/logo_appstore.png" alt="App Store">
+                    <img src="images/1.png" alt="Google Play">
                 </a>
             </div>
+            <div class="store-icons">
+            <!-- APP STORE -->
+                <a href="https://apps.apple.com/id/app/m-paspor/id1576336459"
+                target="_blank" rel="noopener">
+                    <img src="images/2.png" alt="App Store">
+                </a>
+            </div>
+
         </div>
 
         <!-- KANAN -->
@@ -92,3 +97,13 @@
         © 2026 Kantor Wilayah Direktorat Jenderal Imigrasi Sumatera Barat
     </div>
 </footer>
+
+<script>
+function toggleMenu() {
+    const nav = document.querySelector('.nav');
+    const burger = document.querySelector('.hamburger');
+
+    nav.classList.toggle('active');
+    burger.classList.toggle('active');
+}
+</script>

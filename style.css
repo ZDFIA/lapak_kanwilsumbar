@@ -1165,7 +1165,6 @@ body {
 /* footer kanan (MAIN & CONNECT) */
 .footer-right {
     background-color: #0B3C5D  !important;
-    padding: 30px 40px;
     border-radius: 16px;
 }
 
@@ -1452,7 +1451,8 @@ body {
 }
 
 .store-icons img {
-    height: 45px;
+    height: 80px;
     width: auto;
     display: block;
 }
+

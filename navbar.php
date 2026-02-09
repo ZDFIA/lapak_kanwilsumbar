@@ -1,5 +1,11 @@
 <header class="header">
     <div class="header-container">
+        <!-- HAMBURGER BUTTON -->
+<div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
         <div class="logo">
             <img src="images/logo.png" alt="Logo Imigrasi">
