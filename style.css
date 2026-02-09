@@ -1615,7 +1615,56 @@ body {
   }
 }
 
- 
+ /* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    background: #0b3a57;
+    width: 200px;
+    border-radius: 12px;
+    padding: 10px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,.4);
+  }
+
+  .nav-menu li {
+    text-align: center;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 12px;
+    color: white;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+}
+
 
 
 
