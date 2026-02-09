@@ -1720,45 +1720,39 @@ body {
     transform: translateY(10px);
   }
 
-  /* hamburger default di kanan atas */
  /* HEADER CONTAINER RAPI */
 .header-container {
   display: flex;
   align-items: center;
-  position: relative;
-  padding-right: 50px; /* ruang buat hamburger */
+  justify-content: space-between; /* pisah kiri & kanan */
 }
 
-/* LOGO & TEKS */
+/* LOGO */
 .logo {
-  margin-left: -10px; /* geser sedikit kiri, aman */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* HAMBURGER */
 .hamburger {
-  position: absolute;
-  right: 12px;   /* jarak dari kanan */
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  transition: all 0.4s ease;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
 }
 
-/* MOBILE OPTIMIZATION */
+/* MOBILE */
 @media (max-width: 768px) {
-  .logo-text strong {
-    font-size: 12px;
+  .hamburger {
+    display: flex;
   }
 
-  .logo-text span {
-    font-size: 10px;
-  }
-
-  .hamburger span {
-    width: 26px;
-    height: 3px;
+  .nav.nav-button {
+    display: none;
   }
 }
+
 
   /* saat aktif → pindah ke bawah logo */
   .header.menu-open .hamburger {
